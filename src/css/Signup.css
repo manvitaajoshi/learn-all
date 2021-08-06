@@ -1,0 +1,120 @@
+/* 
+.register {
+    height : 100vh ; 
+    z-index: 1;
+    filter: brightness(0.5);
+}
+
+.login {
+    height : 100vh ; 
+    z-index: 1;
+    filter: brightness(0.5);
+} */
+/* body{
+    background-image: url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=709&q=80");
+}
+img{
+     filter: brightness(0.5);
+} */
+.admin{
+    position: absolute;
+    top: 11%;
+    left: 60%;
+}
+
+ .box{
+    
+    position: absolute;
+    top: 70%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 1px solid black;
+    padding: 0px -5px;
+    width: 40%;
+    background-color: white;
+    height: 770px;    
+}
+.box1{
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 1px solid black;
+    padding: 0px -5px;
+    width: 40%;
+    background-color: white;
+    height: 560px;    
+}
+
+    .box h1, .box1 h1{
+    color: black;
+    text-transform: uppercase;
+    font-weight: 600;
+    }
+    .box input[type="text"],.box input[type="password"],
+    .box input[type="email"], .box input[type="date"], .box input[type="number"],
+    .box1 input[type="text"],.box1 input[type="password"],
+    .box1 input[type="email"], .box1 input[type="date"], .box1 input[type="number"]
+    { 
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid black;
+    padding: 14px 10px;
+    width: 270px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.35s;
+    }
+    .box input[type="text"]:focus, .box input[type="password"]:focus,
+    .box input[type="email"]:focus,.box input[type="date"]:focus,
+    .box1 input[type="text"]:focus, .box1 input[type="password"]:focus,
+    .box1 input[type="email"]:focus,.box1 input[type="date"]:focus
+    {
+    width: 300px;
+    border-color: black;
+    background-color: #FDF2E9;
+    }
+    .btn1
+    {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid black;
+    padding: 14px 60px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+    text-decoration: none;
+    }
+    .btn1:hover{
+    background: #FAE5D3;
+    color:black;
+
+    }
+
+    
+    .btn-acc{
+        position: absolute;
+        top: 90%;
+        left: 55%;
+        font-size: 30px;
+        color: white;
+    }
+    .acc{
+        color : white ; 
+    }
+    /* .btn1{
+        position: absolute;
+        top: 100%;
+        left: 55%;
+    } */
