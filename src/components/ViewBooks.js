@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import firebase from "firebase";
-import English_Books from './English_Books';
-import Math_Books from './Maths_Books';
-import Science_Books from './Science_Books';
-import { Link, useHistory } from "react-router-dom";
+import Eng_Books_Tchr from './Eng_Books_Tchr';
+import Math_Books_Tchr from './Math_Books_Tchr';
+import Sci_Books_Tchr  from './Sci_Books_Tchr';
 
 const Student = () => {
     <>  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
@@ -68,18 +67,18 @@ const Student = () => {
         <div>
             <details>
                 <summary> <h1 style={{ color: "red" }}>English Books</h1> <br /></summary>
-                {engPdfList ? engPdfList.map((pdf, index) => <English_Books pdf={pdf} key={index} />) : ''}
+                {engPdfList ? engPdfList.map((pdf, index) => <Eng_Books_Tchr pdf={pdf} key={index} />) : ''}
             </details>
             <details>
                 <summary> <h1 style={{ color: "red" }}>Maths Books</h1> <br /></summary>
-                {mathPdfList ? mathPdfList.map((pdf, index) => <Math_Books pdf={pdf} key={index} />) : ''}
+                {mathPdfList ? mathPdfList.map((pdf, index) => <Math_Books_Tchr pdf={pdf} key={index} />) : ''}
             </details>
             <details>
                 <summary> <h1 style={{ color: "red" }}>Science Books</h1> <br /></summary>
-                {sciPdfList ? sciPdfList.map((pdf, index) => <Science_Books pdf={pdf} key={index} />) : ''}
+                {sciPdfList ? sciPdfList.map((pdf, index) => <Sci_Books_Tchr pdf={pdf} key={index} />) : ''}
             </details>
 
-<Link to="/quiz_english">Take eng quiz</Link>
+
 
         </div>
     )
