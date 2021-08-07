@@ -5,6 +5,10 @@ import PrivateRoute from "./components/PrivateRoute"
 import ForgotPassword from "./components/ForgotPassword"
 import UpdateProfile from "./components/UpdateProfile"
 import Teacher from "./components/Teacher"
+import Student from "./components/Student"
+import Upload_Books from "./components/UploadBooks"
+import View_Books from "./components/ViewBooks"
+import Quiz_English from "./components/Quiz_English"
 // import CRUD1 from "./components/CRUD1"
 // import CRUD2 from "./components/CRUD2"
 // import CRUD3 from "./components/CRUD3"
@@ -22,12 +26,16 @@ function App() {
           <AuthProvider>
             <Switch>
               <PrivateRoute exact path="/" component={Dashboard} />
+              <PrivateRoute exact path="/admin" component={Teacher} />
+              <PrivateRoute exact path="/student" component={Student} />
+              <PrivateRoute exact path="/update_profile" component={UpdateProfile} />
+              <PrivateRoute exact path="/upload_books" component={Upload_Books} />
+              <PrivateRoute exact path="/view_books" component={View_Books} />
+              <PrivateRoute exact path="/quiz_english" component={Quiz_English} />
               <Route exact path="/signup" component={SignUp} />
               <Route exact path="/login" component={LogIn} />
-              <PrivateRoute exact path="/update-profile" component={UpdateProfile} />
               <Route exact path="/forgot-password" component={ForgotPassword} />
               <Route exact path="/404" component={FNF} />
-              <Route exact path="/admin" component={Teacher} />
               <Redirect to="/404" />
               {/* <PrivateRoute exact path="/update-profile" component={UpdateProfile} />
               <Route exact path="/signup" component={SignUp} />
