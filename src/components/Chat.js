@@ -17,8 +17,6 @@ export default function Chatbot() {
             }} onClick={() => {
                 setShow(!show)
             }}>
-                {/* <span>
-                    <i classname="fas fa-question"></i></span> */}
                 <span className="fa fa-question fa-2x"></span>
             </button>
 
@@ -26,7 +24,6 @@ export default function Chatbot() {
                 show === true ?
                     <iframe className="chatbot" width="310" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/78e40d1f-42b7-478c-8760-8db48489301c"></iframe>
                     : ""
-                    // <iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/1b21d25a-de3c-4aeb-bfcf-4e87ad438070"></iframe>: ""
             }
         </>
 

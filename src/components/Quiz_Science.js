@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { QuizData } from './Quiz_Data_English';
+import React, { Component, useState } from 'react'
+import { QuizData } from './Quiz_Data_Science';
 import "../css/Quiz.css"
 import Header from "./Header"
 
@@ -88,22 +88,22 @@ export class Quiz extends Component {
                 <div>
                     <Header />
                     <div style={{ width: "400px", paddingTop: "100px", paddingLeft: "300px", borderRadius: "30px", marginBottom: "30px" }}>
-                    <h2>Your final score is </h2>
-                    <h1 style={{color:"red"}}>{this.state.score} points</h1><br/>
-                    <ul>
-                        {QuizData.map((item, index) => (
-                            <li className='ui floating message options'
-                                key={index}>
-                                <p>The question was: </p>
-                               <h4 style={{color:"darkblue"}}> {item.question} </h4><br/>
-                                <p>The correct answer is:</p>
-                                <h4 style={{ color: "darkgreen" }}>{item.answer}</h4>
-                            </li>
-                        ))}
+                        <h2>Your final score is </h2>
+                        <h1 style={{ color: "red" }}>{this.state.score} points</h1><br />
+                        <ul>
+                            {QuizData.map((item, index) => (
+                                <li className='ui floating message options'
+                                    key={index}>
+                                    <p>The question was: </p>
+                                    <h4 style={{ color: "darkblue" }}> {item.question} </h4><br />
+                                    <p>The correct answer is:</p>
+                                    <h4 style={{ color: "darkgreen" }}>{item.answer}</h4>
+                                </li>
+                            ))}
 
-                    </ul>
+                        </ul>
                     </div>
-                    <br/><br/>
+                    <br /><br />
                 </div>
             )
         }
@@ -114,7 +114,7 @@ export class Quiz extends Component {
                 <div style={{ width: "400px", paddingTop: "100px", paddingLeft: "300px", borderRadius: "30px" }}>
                     <h2 style={{ width: "600px" }}>Q. {question}</h2><br />
                     <span>{`Question ${currentIndex + 1} of ${QuizData.length}`}</span><br /><br />
-                    {options.map(option => ( 
+                    {options.map(option => (  //for each option, new paragraph
                         <p key={option.id}
                             className={`ui floating message options
                 ${userAnswer === option ? "selected" : null}
@@ -128,14 +128,14 @@ export class Quiz extends Component {
                     <br />
                     {currentIndex < QuizData.length - 1 &&
                         <button
-                            style={{ padding: "10px", borderRadius:"6px" }}
+                            style={{ padding: "10px", borderRadius: "6px" }}
                             disabled={this.state.disabled}
                             onClick={this.nextQuestionHander}
                         >Next Question</button>
                     }
                     {currentIndex === QuizData.length - 1 &&
                         <button
-                        style={{ padding: "10px", borderRadius: "6px" }}
+                            style={{ padding: "10px", borderRadius: "6px" }}
                             disabled={this.state.disabled}
                             onClick={this.finishHandler}
                         >Finish</button>

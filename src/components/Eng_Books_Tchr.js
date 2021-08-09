@@ -1,25 +1,19 @@
 import React from 'react'
-import firebase from 'firebase'; 
+import firebase from 'firebase';
 import { useAuth } from "../contexts/AuthContext"
 
 const English_Books_Tchr = ({ pdf }) => {
     const currentUser = useAuth();
     console.log("del")
     const deletePdf = () => {
-        //const storageRef = firebase.storage().ref("docs");
         const pdfRef = firebase.database().ref('docs').child(pdf.id);
         const ref = firebase.database().ref('teacher');
         firebase.auth().onAuthStateChanged(function (currentUser) {
             if (currentUser) {
-                //console.log("can u see me")
                 ref.on('value', (snapshot) => {
                     const users = snapshot.val();
                     for (let id in users) {
-                        //console.log("hiiiiiiiiiiiii");
-                        //console.log("hi", currentUser.email);
                         if (users[id].subject == "English" && currentUser.email == users[id].userEmail) {
-                            //console.log(users[id])
-                            //console.log("hello");
                             pdfRef.remove();
                         }
                     }
@@ -28,19 +22,17 @@ const English_Books_Tchr = ({ pdf }) => {
                 // No user is signed in.
             }
         });
-        //console.log("id", pdf.id);
-       
-        
     };
     return (
         <div>
-            <h2>{pdf.bookName} </h2>
-            <h3>{pdf.standard} </h3>
-            <h3>{pdf.uploadedBy} </h3>
-            {/* <h1>{pdf.id}</h1> */}
-            <a href={pdf.url} target="_blank">Download</a>
-            <button onClick={deletePdf}>Delete</button>
-            <br /><hr /><br />
+            <h3 style={{ color: "darkblue" }}>Title: {pdf.bookName} </h3><br />
+            <h4>For standard: {pdf.standard} </h4><br />
+            <p>Uploaded by: {pdf.uploadedBy} </p><br />
+            <a style={{ color: "white", borderRadius: "20px", backgroundColor: "darkblue", padding: "5px 10px", textDecoration: "none" }}
+                href={pdf.url} target="_blank">DOWNLOAD</a>
+            <br /><br />
+            <button style={{ color: "white", bored: "1px solid darkblue", borderRadius: "20px", color: "darkblue", backgroundColor: "white", padding: "5px 10px" }} onClick={deletePdf}>Delete</button>
+            <br />
         </div>
     )
 }

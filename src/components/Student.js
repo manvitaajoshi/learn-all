@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
-import firebase from "firebase";
-import English_Books from './English_Books';
-import Math_Books from './Maths_Books';
-import Science_Books from './Science_Books';
-import { Link, useHistory } from "react-router-dom";
+import React from "react";
+import Header from './Header';
+import Footer from './Footer';
+import { Link } from "react-router-dom";
 
 const Student = () => {
     <>  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
@@ -12,75 +10,20 @@ const Student = () => {
         <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
     </>
 
-    const [engPdfList, setEngPdfList] = useState();
-    const [mathPdfList, setMathPdfList] = useState();
-    const [sciPdfList, setSciPdfList] = useState();
-
-    useEffect(() => {
-        const pdfRef = firebase.database().ref("docs");
-
-        pdfRef.on('value', (snapshot) => {
-            const pdfs = snapshot.val();
-            const engPdfList = [];
-            const mathPdfList = [];
-            const sciPdfList = [];
-            for (let id in pdfs) {
-                if (pdfs[id].subjectName === "English") {
-                    engPdfList.push({ id, ...pdfs[id] })
-                }
-            }
-            setEngPdfList(engPdfList);
-
-            for (let id in pdfs) {
-                if (pdfs[id].subjectName === "Maths") {
-                    mathPdfList.push({ id, ...pdfs[id] })
-                }
-            }
-            setMathPdfList(mathPdfList);
-
-            for (let id in pdfs) {
-                if (pdfs[id].subjectName === "Science") {
-                    sciPdfList.push({ id, ...pdfs[id] })
-                }
-            }
-            setSciPdfList(sciPdfList);
-        });
-
-    }, []);
-    // const partRef = firebase.database().ref("docs").child(id);
-    // console.log("1 ", id);
-    // partRef.on('value', (snap) => {
-    //     const parts = snap.val();
-    //     const partList = [];
-    //     for (let x in parts) {
-    //         console.log("2 ", x);
-    //         if(parts[x].subjectName==="English"){
-    //             pdfList.push({ x, ...parts[x] })
-    //         }
-
-    //     }
-    // })
-
-    // if (currentUser.email === (users[id].email)) {
-    //     
-    // }
     return (
-        <div>
-            <details>
-                <summary> <h1 style={{ color: "red" }}>English Books</h1> <br /></summary>
-                {engPdfList ? engPdfList.map((pdf, index) => <English_Books pdf={pdf} key={index} />) : ''}
-            </details>
-            <details>
-                <summary> <h1 style={{ color: "red" }}>Maths Books</h1> <br /></summary>
-                {mathPdfList ? mathPdfList.map((pdf, index) => <Math_Books pdf={pdf} key={index} />) : ''}
-            </details>
-            <details>
-                <summary> <h1 style={{ color: "red" }}>Science Books</h1> <br /></summary>
-                {sciPdfList ? sciPdfList.map((pdf, index) => <Science_Books pdf={pdf} key={index} />) : ''}
-            </details>
-
-<Link to="/quiz_english">Take eng quiz</Link>
-
+        <div style={{ fontFamily: "raleway" }}>
+            <Header />
+            <br /><br /><br /><br /><br />
+            <div className="student">
+                <a id="studentpage1"><Link to="/view_books_student" style={{ textDecoration: "none", color: "white" }}>View Books</Link></a> <br /><br /><br />
+                <a id="studentpage2"><Link to="/view_announcement" style={{ textDecoration: "none", color: "white" }}>View Announcements</Link></a><br /><br /><br />
+                <a id="studentpage3"><Link to="/display_video" style={{ textDecoration: "none", color: "white" }}>Watch Videos</Link></a><br /><br /><br />
+                <a id="studentpage4"><Link to="/quiz_english" style={{ textDecoration: "none", color: "white" }}>Take English Quiz</Link> </a ><br /><br /><br />
+                <a id="studentpage5"><Link to="/quiz_maths" style={{ textDecoration: "none", color: "white" }}>Take Maths Quiz</Link> </a ><br /><br /><br />
+                <a id="studentpage6"><Link to="/quiz_science" style={{ textDecoration: "none", color: "white" }}> Take Science Quiz</Link ></a > <br /><br /><br />
+                <a id="studentpage7"><Link to="/update_profile" style={{ textDecoration: "none", color: "white" }}> Update Profile</Link ></a > <br /><br /><br />
+            </div>
+            <Footer />
         </div>
     )
 }

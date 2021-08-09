@@ -24,22 +24,15 @@ export default function Header(props) {
 
     return (
         <div className="page-navbar">
-            <img class="logo" src="school-logo.png" height="50px" width="50px"></img>
-            {/* <h1 className="text-box heading-primary">
-                <img src="youngistan.png" height="50px" width="50px"></img>
-                <span className="heading-primary-main">Youngistaan Foundation</span>
-                <br />
-                <span className="heading-primary-sub">Be a star, save someone's life.</span>
-            </h1> */}
-
+            <Link to="/"><img class="logo" src="school-logo.png" height="50px" width="50px" /></Link>
             <div className="nav-items highlightTextOut">
-                {/* <button><Link to="/home">Home</Link></button> */}
                 {props.authbtn === "register" ?
                     <>
                         <a id="register" alt="REGISTER"><Link to="/signup">REGISTER</Link></a>
-                        <a id="login" alt="LOGIN"><Link to="/login">LOGIN</Link></a> </> : <><a alt="LogOut"><button className="btn btn-danger" onClick={() => { handleLogout() }}>
-                            Log Out <span><i class="fas fa-sign-out-alt"></i></span>
-                        </button></a></>
+                        <a id="login" alt="LOGIN"><Link to="/login">LOGIN</Link></a> </> :
+                    <><button id="logout" style={{ border: "none", fontFamily: "raleway" }} onClick={() => { handleLogout() }}>
+                        LOGOUT
+                    </button></>
                 }
             </div>
         </div>

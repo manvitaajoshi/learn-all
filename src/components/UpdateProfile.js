@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react"
-import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
+import Footer from "./Footer"
+import Header from './Header';
 
 export default function UpdateProfile() {
     const emailRef = useRef()
@@ -31,10 +32,13 @@ export default function UpdateProfile() {
 
         Promise.all(promises)
             .then(() => {
+                alert("Profile updated successfully!")
                 history.push("/")
             })
             .catch(() => {
+                //alert("Failed to update account.")
                 setError("Failed to update account.")
+                
             })
             .finally(() => {
                 setLoading(false)
@@ -43,45 +47,27 @@ export default function UpdateProfile() {
 
     return (
         <>
-            <Card>
-                <Card.Body>
-                    <h2 className="text-center mb-4">Update Profile</h2>
-                    {error && <Alert variant="danger">{error}</Alert>}
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group id="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control
-                                type="email"
-                                ref={emailRef}
-                                required
-                                defaultValue={currentUser.email}
-                            />
-                        </Form.Group>
-                        <Form.Group id="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                type="password"
-                                ref={passwordRef}
-                                placeholder="Leave blank to keep the same"
-                            />
-                        </Form.Group>
-                        <Form.Group id="password-confirm">
-                            <Form.Label>Password Confirmation</Form.Label>
-                            <Form.Control
-                                type="password"
-                                ref={passwordConfirmRef}
-                                placeholder="Leave blank to keep the same"
-                            />
-                        </Form.Group>
-                        <Button disabled={loading} className="w-100" type="submit">
-                            Update
-                        </Button>
-                    </Form>
-                </Card.Body>
-            </Card>
-            <div className="w-100 text-center mt-2">
-                <Link to="/">Cancel</Link>
+            <Header />
+            <form class="box1" onSubmit={handleSubmit}>
+                <h1 style={{ paddingTop: "20px" }}>Update Profile</h1><br />
+                {error && <h3 style={{ color: "red" }}>{error}</h3>}
+                <input type="email" name="" placeholder="Email" ref={emailRef} defaultValue={currentUser.email} required />
+                <h4>Password</h4>
+                <input type="password"
+                    ref={passwordRef}
+                    placeholder="Leave blank to keep the same" />
+                <h4>Confirm Password</h4>
+                <input type="password"
+                    ref={passwordConfirmRef}
+                    placeholder="Leave blank to keep the same" />
+
+                <input type="submit" name="" className="btn1" disabled={loading} value="Update" /><br />
+            </form> <br /><br />
+            <div>
+                <Link to="/student" style={{ color: "black", position: "absolute", top: "100%", right: "48%" }}>Cancel</Link>
             </div>
+
+            <Footer />
         </>
     )
 }
