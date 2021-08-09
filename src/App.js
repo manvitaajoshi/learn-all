@@ -6,12 +6,16 @@ import ForgotPassword from "./components/ForgotPassword"
 import UpdateProfile from "./components/UpdateProfile"
 import Teacher from "./components/Teacher"
 import Student from "./components/Student"
-import Upload_Books from "./components/UploadBooks"
-import View_Books from "./components/ViewBooks"
+import Upload_Books from "./components/Upload_Book"
+import View_Books from "./components/View_Books"
+import View_Books_Student from "./components/View_Book_Student"
 import Quiz_English from "./components/Quiz_English"
-// import CRUD1 from "./components/CRUD1"
-// import CRUD2 from "./components/CRUD2"
-// import CRUD3 from "./components/CRUD3"
+import Quiz_Science from "./components/Quiz_Science"
+import Quiz_Maths from "./components/Quiz_Maths"
+import Upload_Announcement from "./components/Announcement_Upload"
+import View_Announcement from "./components/Announcement_Display"
+import Upload_Video from "./components/Upload_Video"
+import Display_Video from "./components/Display_Video"
 import FNF from "./components/404"
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -25,27 +29,25 @@ function App() {
         <Router>
           <AuthProvider>
             <Switch>
-              <PrivateRoute exact path="/" component={Dashboard} />
+              <Route exact path="/" component={Dashboard} />
               <PrivateRoute exact path="/admin" component={Teacher} />
               <PrivateRoute exact path="/student" component={Student} />
               <PrivateRoute exact path="/update_profile" component={UpdateProfile} />
               <PrivateRoute exact path="/upload_books" component={Upload_Books} />
               <PrivateRoute exact path="/view_books" component={View_Books} />
+              <PrivateRoute exact path="/view_books_student" component={View_Books_Student} />
               <PrivateRoute exact path="/quiz_english" component={Quiz_English} />
+              <PrivateRoute exact path="/quiz_maths" component={Quiz_Maths} />
+              <PrivateRoute exact path="/quiz_science" component={Quiz_Science} />
+              <PrivateRoute exact path="/upload_announcement" component={Upload_Announcement} />
+              <PrivateRoute exact path="/upload_video" component={Upload_Video} />
+              <PrivateRoute exact path="/display_video" component={Display_Video} />
+              <PrivateRoute exact path="/view_announcement" component={View_Announcement} />
               <Route exact path="/signup" component={SignUp} />
               <Route exact path="/login" component={LogIn} />
               <Route exact path="/forgot-password" component={ForgotPassword} />
               <Route exact path="/404" component={FNF} />
               <Redirect to="/404" />
-              {/* <PrivateRoute exact path="/update-profile" component={UpdateProfile} />
-              <Route exact path="/signup" component={SignUp} />
-              <Route exact path="/login" component={LogIn} />
-              <Route exact path="/crud1" component={CRUD1} />
-              <Route exact path="/crud2" component={CRUD2} />
-              <Route exact path="/crud3" component={CRUD3} />
-              <Route exact path="/forgot-password" component={ForgotPassword} />
-              <Route exact path="/404" component={FNF} />
-              <Redirect to="/404" /> */}
             </Switch>
           </AuthProvider>
         </Router>
@@ -55,32 +57,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
