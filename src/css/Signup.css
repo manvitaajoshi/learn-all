@@ -25,8 +25,8 @@ img{
  .box{
     
     position: absolute;
-    top: 70%;
-    left: 65%;
+    top: 80%;
+    left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     border: 1px solid black;
@@ -37,8 +37,8 @@ img{
 }
 .box1{
     position: absolute;
-    top: 50%;
-    left: 65%;
+    top: 70%;
+    left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     border: 1px solid black;
@@ -47,8 +47,21 @@ img{
     background-color: white;
     height: 560px;    
 }
-
-    .box h1, .box1 h1{
+.box2{
+    margin-top:100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px -5px;
+    width: 40%;
+    background-color: white;
+    height: 600px; 
+    padding-top: 30px;   
+}
+    .box h1, .box1 h1, .box2 h2{
     color: black;
     text-transform: uppercase;
     font-weight: 600;
@@ -56,7 +69,9 @@ img{
     .box input[type="text"],.box input[type="password"],
     .box input[type="email"], .box input[type="date"], .box input[type="number"],
     .box1 input[type="text"],.box1 input[type="password"],
-    .box1 input[type="email"], .box1 input[type="date"], .box1 input[type="number"]
+    .box1 input[type="email"], .box1 input[type="date"], .box1 input[type="number"], textarea,
+    .box2 input[type="text"],.box2 input[type="password"],.box2 input[type="file"],
+    .box2 input[type="email"], .box2 input[type="date"], .box2 input[type="number"]
     { 
     border: 0;
     background: none;
@@ -74,7 +89,9 @@ img{
     .box input[type="text"]:focus, .box input[type="password"]:focus,
     .box input[type="email"]:focus,.box input[type="date"]:focus,
     .box1 input[type="text"]:focus, .box1 input[type="password"]:focus,
-    .box1 input[type="email"]:focus,.box1 input[type="date"]:focus
+    .box1 input[type="email"]:focus,.box1 input[type="date"]:focus, textarea:focus,
+    .box2 input[type="text"]:focus, .box2 input[type="password"]:focus,
+    .box2 input[type="email"]:focus,.box2 input[type="date"]:focus, .box2 input[type="file"]:focus
     {
     width: 300px;
     border-color: black;
